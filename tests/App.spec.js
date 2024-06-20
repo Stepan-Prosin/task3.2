@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const { USER_EMAIL, USER_PASSWORD } = require('./user.js');
 
-test('Успешная авторизация', async ({ page }) => {
+test('Успешная авторизация',{timeout:120000}, async ({ page }) => {
   // Открываем форму авторизации
   await page.goto('https://netology.ru/');
   await page.click('text=Войти');
@@ -18,7 +18,7 @@ test('Успешная авторизация', async ({ page }) => {
   await expect(page.locator('h2[ class="src-components-pages-Profile-Programs--title--Kw5NH"]')).toHaveText('Моё обучение');
 });
 
-test('Неуспешная авторизация', async ({ page }) => {
+test('Неуспешная авторизация',{timeout:120000}, async ({ page }) => {
   // Открываем форму авторизации
   await page.goto('https://netology.ru/');
   await page.click('text=Войти');
